@@ -24,7 +24,7 @@ def main():
     # Handle the content for each screen
     if choice == "Home":
         st.write("### Welcome to the Finance App")
-        st.write("Navigate using the sidebar to manage financial data, calculate ratios, and view insights.")
+        st.write("Navigate using the sidebar to manage financial data and calculate ratios.")
 
     elif choice == "Balance Sheet":
         st.write("### Balance Sheet")
