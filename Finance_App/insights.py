@@ -189,7 +189,9 @@ def display_insights():
     ])
 
     # Display overall insights
-    st.subheader("###Overall Insights")
+    st.markdown("""
+        <h2 style='font-size:32px; color: #4CAF50;'>Overall Insights</h2>
+    """, unsafe_allow_html=True)
     if scores_2024 > scores_2023:
         st.success(f"2024 is a better year with a total score of {scores_2024} compared to 2023's score of {scores_2023}.")
     elif scores_2024 < scores_2023:
