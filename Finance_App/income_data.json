@@ -1,0 +1,20 @@
+{
+    "total_income_2023": 3544462,
+    "total_income_2024": 4354354,
+    "total_expenses_2023": 135435.0,
+    "total_expenses_2024": 1554343.0,
+    "total_tax_2023": 13543,
+    "total_tax_2024": 2462,
+    "profit_before_tax_2023": 3409027.0,
+    "profit_before_tax_2024": 2800011.0,
+    "profit_after_tax_2023": 3395484.0,
+    "profit_after_tax_2024": 2797549.0,
+    "revenue_from_operations_2023": 2313231,
+    "revenue_from_operations_2024": 1231233,
+    "other_income_2023": 1231231,
+    "other_income_2024": 3123121,
+    "finance_costs_2023": 12312.0,
+    "finance_costs_2024": 323112.0,
+    "depreciation_expenses_2023": 123123.0,
+    "depreciation_expenses_2024": 1231231.0
+}
