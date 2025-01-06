@@ -2,6 +2,8 @@ import streamlit as st
 from balancesheet import display_balance_sheet
 from incomesheet import display_income_sheet
 from calculation_ratio import display_calculation_ratio
+from insights import display_insights
+
 import json
 
 
@@ -18,7 +20,7 @@ def main():
         choice = st.session_state.navigate_to
         st.session_state.navigate_to = None  # Reset navigation state to prevent infinite loop
     else:
-        menu = ["Home", "Balance Sheet", "Income Sheet", "Calculation Ratio"]
+        menu = ["Home", "Balance Sheet", "Income Sheet", "Calculation Ratio", "Insights"]
         choice = st.sidebar.selectbox("Select an option", menu)
 
     # Handle the content for each screen
@@ -45,6 +47,8 @@ def main():
 
     elif choice == "Calculation Ratio":
         display_calculation_ratio()
+    elif choice == "Insights":
+        display_insights()
 def save_data_to_json():
     data = {}
 
