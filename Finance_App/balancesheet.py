@@ -62,9 +62,6 @@ def display_balance_sheet():
     def calculate_totals(df, year):
         return sum(float(x) for x in df[year] if x is not None and str(x).replace('.', '', 1).isdigit())
 
-    # Layout with expanders
-    st.title("Balance Sheet Application")
-    st.divider()
 
 
     # Shareholder's Funds
