@@ -31,7 +31,8 @@ def display_calculation_ratio():
         total_current_liabilities_2024 = st.session_state.get("total_current_liabilities_2024", 0)
         total_current_assets_2023 = st.session_state.get("total_current_assets_2023", 0)
         total_current_liabilities_2023 = st.session_state.get("total_current_liabilities_2023", 0)
-
+        inventories_2024 = st.session_state.get("inventories_2024", 0)
+        inventories_2023 = st.session_state.get("inventories_2023", 0)
         profit_after_tax_2024 = st.session_state.get("profit_after_tax_2024", 0)
         profit_after_tax_2023 = st.session_state.get("profit_after_tax_2023", 0)
         total_shareholder_funds_2024 = st.session_state.get("total_shareholder_2024", 0)
@@ -59,7 +60,16 @@ def display_calculation_ratio():
         else:
             current_ratio_2023 = None
 
+        # Quick Ratio
+        if total_current_liabilities_2024 != 0:
+            quick_ratio_2024 = (total_current_assets_2024 - inventories_2024) / total_current_liabilities_2024
+        else:
+            quick_ratio_2024 = None
 
+        if total_current_liabilities_2023 != 0:
+            quick_ratio_2023 = (total_current_assets_2023 - inventories_2023) / total_current_liabilities_2023
+        else:
+            quick_ratio_2023 = None
 
         # Return on Equity (ROE)
         if total_shareholder_funds_2024 != 0:
@@ -81,7 +91,9 @@ def display_calculation_ratio():
         st.metric("2024", f"{current_ratio_2024:.2f}" if current_ratio_2024 is not None else "N/A")
         st.metric("2023", f"{current_ratio_2023:.2f}" if current_ratio_2023 is not None else "N/A")
 
-
+        st.subheader("Quick Ratio")
+        st.metric("2024", f"{quick_ratio_2024:.2f}" if quick_ratio_2024 is not None else "N/A")
+        st.metric("2023", f"{quick_ratio_2023:.2f}" if quick_ratio_2023 is not None else "N/A")
 
         st.subheader("Return on Equity (ROE)")
         st.metric("2024", f"{roe_2024:.2f}" if roe_2024 is not None else "N/A")
