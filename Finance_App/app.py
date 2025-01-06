@@ -31,7 +31,7 @@ def main():
         df_balance = display_balance_sheet()
         if df_balance is not None:
             st.session_state.df_balance = df_balance
-            st.success("Balance Sheet data saved successfully!")
+
 
 
 
@@ -40,7 +40,7 @@ def main():
         df_income = display_income_sheet()
         if df_income is not None:
             st.session_state.df_income = df_income
-            st.success("Income Sheet data saved successfully!")
+
 
     elif choice == "Calculation Ratio":
         display_calculation_ratio()
