@@ -15,6 +15,8 @@ def save_data_to_json():
         "total_current_liabilities_2024": st.session_state.get("total_current_liabilities_2023", 0),
         "inventories_2023": st.session_state.get("inventories_2023", 0),
         "inventories_2024": st.session_state.get("inventories_2024", 0),
+        "total_assets_2023": st.session_state.get("total_assets_2023", 0),
+        "total_assets_2024": st.session_state.get("total_assets_2024", 0)
     }
 
     # Save data to a JSON file
@@ -134,8 +136,12 @@ def display_balance_sheet():
     inventories_2023_row = current_assets_df[current_assets_df["PARTICULARS in cr"] == 'Inventories']
     inventories_2024_row = current_assets_df[current_assets_df["PARTICULARS in cr"] == 'Inventories']
         
-    inventories_2023 = int(inventories_2023_row["2023"].iloc[0]) if not inventories_2023_row.empty else 0
-    inventories_2024 = int(inventories_2024_row["2024"].iloc[0]) if not inventories_2024_row.empty else 0
+    inventories_2023 = inventories_2023_row["2023"].iloc[0] if not inventories_2023_row.empty else None
+    inventories_2023 = int(inventories_2023) if inventories_2023 is not None else 0
+
+    inventories_2024 = inventories_2024_row["2024"].iloc[0] if not inventories_2024_row.empty else None
+    inventories_2024 = int(inventories_2024) if inventories_2024 is not None else 0
+
 
 
 
@@ -163,6 +169,8 @@ def display_balance_sheet():
         st.session_state.total_current_liabilities_2024 = total_current_liabilities_2024
         st.session_state.inventories_2023 = inventories_2023
         st.session_state.inventories_2024 = inventories_2024
+        st.session_state.total_assets_2023 = total_assets_2023
+        st.session_state.total_assets_2024 = total_assets_2024
         # Save data to JSON
         save_data_to_json()
 
