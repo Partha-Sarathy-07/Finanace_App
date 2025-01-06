@@ -3,23 +3,27 @@ import json
 
 def save_data_to_json():
     # Retrieve the balance sheet data from session state
-    if "df_balance" in st.session_state:
-        df_balance = st.session_state.df_balance
-        balance_json = df_balance.to_json(orient="records")
-
-        # Save other relevant financial data from session state if required
-        total_non_current_liabilities_2023 = st.session_state.get("total_non_current_2023", 0)
-        total_shareholder_funds_2023 = st.session_state.get("total_shareholder_2023", 0)
-
-        # Create the data dictionary
-        data = {
-            "balance_sheet": json.loads(balance_json),
-            "total_non_current_liabilities_2023": total_non_current_liabilities_2023,
-            "total_shareholder_funds_2023": total_shareholder_funds_2023
-        }
+    data = {
+        "debt_to_equity_ratio_2024": st.session_state.get("debt_to_equity_ratio_2024", 0),
+        "debt_to_equity_ratio_2023": st.session_state.get("debt_to_equity_ratio_2023", 0),
+        "current_ratio_2024": st.session_state.get("current_ratio_2024", 0),
+        "current_ratio_2023": st.session_state.get("current_ratio_2023", 0),
+        "quick_ratio_2024": st.session_state.get("quick_ratio_2024", 0),
+        "quick_ratio_2023": st.session_state.get("quick_ratio_2023", 0),
+        "roe_2024": st.session_state.get("roe_2024", 0),
+        "roe_2023": st.session_state.get("roe_2023", 0),
+        "working_capital_turnover_ratio_2024": st.session_state.get("working_capital_turnover_ratio_2024", 0),
+        "working_capital_turnover_ratio_2023": st.session_state.get("working_capital_turnover_ratio_2023", 0),
+        "operating_profit_ratio_2024": st.session_state.get("operating_profit_ratio_2024", 0),
+        "operating_profit_ratio_2023": st.session_state.get("operating_profit_ratio_2023", 0),
+        "roa_2024": st.session_state.get("roa_2024", 0),
+        "roa_2023": st.session_state.get("roa_2023", 0),
+        "fixed_charge_cover_ratio_2024": st.session_state.get("fixed_charge_cover_ratio_2024", 0),
+        "fixed_charge_cover_ratio_2023": st.session_state.get("fixed_charge_cover_ratio_2023", 0)
+           }
 
         # Save the data to a JSON file
-        with open("financial_calculation_data.json", "w") as json_file:
+    with open("calculation_data.json", "w") as json_file:
             json.dump(data, json_file, indent=4)
 
 def display_calculation_ratio():
@@ -126,5 +130,23 @@ def display_calculation_ratio():
         st.warning("Please complete the Balance Sheet or Income Sheet first.")
 
     if st.button("Save Calculation Data"):
+        st.session_state["operating_profit_ratio_2024"] = operating_profit_ratio_2024
+        st.session_state["operating_profit_ratio_2023"] = operating_profit_ratio_2023
+        st.session_state["roa_2024"] = roa_2024 
+        st.session_state["roa_2023"] = roa_2023
+        st.session_state["fixed_charge_cover_ratio_2024"] = fixed_charge_cover_ratio_2024
+        st.session_state["fixed_charge_cover_ratio_2023"] = fixed_charge_cover_ratio_2023
+        st.session_state["debt_to_equity_ratio_2024"] = debt_to_equity_ratio_2024 
+        st.session_state["debt_to_equity_ratio_2023"] = debt_to_equity_ratio_2023
+        st.session_state["current_ratio_2024"] = current_ratio_2024 
+        st.session_state["current_ratio_2023"] = current_ratio_2023
+        st.session_state["quick_ratio_2024"] = quick_ratio_2024 
+        st.session_state["quick_ratio_2023"] = quick_ratio_2023
+        st.session_state["roe_2024"] = roe_2024 
+        st.session_state["roe_2023"] = roe_2023
+        st.session_state["working_capital_turnover_ratio_2024"] = working_capital_turnover_ratio_2024 
+        st.session_state["working_capital_turnover_ratio_2023"] = working_capital_turnover_ratio_2023
+  
+
         save_data_to_json()
         st.success("Calculation data saved successfully!")
