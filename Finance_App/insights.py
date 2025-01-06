@@ -5,14 +5,14 @@ def display_insights():
 
     # Retrieve calculated ratio values from session state
     debt_to_equity_ratio_2024 = st.session_state.get("debt_to_equity_ratio_2024", None)
-    working_capital_turnover_2024 = st.session_state.get("working_capital_turnover_2024", None)
+    working_capital_turnover_ratio_2024 = st.session_state.get("working_capital_turnover_ratio_2024", None)
     operating_profit_ratio_2024 = st.session_state.get("operating_profit_ratio_2024", None)
-    return_on_assets_2024 = st.session_state.get("return_on_assets_2024", None)
+    roa_2024 = st.session_state.get("roa_2024", None)
     current_ratio_2024 = st.session_state.get("current_ratio_2024", None)
     quick_ratio_2024 = st.session_state.get("quick_ratio_2024", None)
-    fixed_charge_coverage_ratio_2024 = st.session_state.get("fixed_charge_coverage_ratio_2024", None)
+    fixed_charge_cover_ratio_2024 = st.session_state.get("fixed_charge_cover_ratio_2024", None)
     roe_2024 = st.session_state.get("roe_2024", None)
-    eps_2024 = st.session_state.get("eps_2024", None)
+
 
     # Function to display insights based on ratio values
     def provide_insight(ratio, standard_low, standard_high, above_msg, below_msg):
@@ -34,8 +34,8 @@ def display_insights():
 
     # Working Capital Turnover Ratio
     st.subheader("Working Capital Turnover Ratio (Standard: 6 to 10)")
-    st.metric("2024", f"{working_capital_turnover_2024:.2f}" if working_capital_turnover_2024 is not None else "N/A")
-    provide_insight(working_capital_turnover_2024, 6, 10,
+    st.metric("2024", f"{working_capital_turnover_ratio_2024:.2f}" if working_capital_turnover_ratio_2024 is not None else "N/A")
+    provide_insight(working_capital_turnover_ratio_2024, 6, 10,
                     "Efficient use of working capital to generate sales.",
                     "Inefficient use of working capital. Could indicate excessive inventory or declining sales.")
 
@@ -48,8 +48,8 @@ def display_insights():
 
     # Return on Assets (ROA)
     st.subheader("Return on Assets (ROA) (Standard: 5% or higher)")
-    st.metric("2024", f"{return_on_assets_2024:.2f}" if return_on_assets_2024 is not None else "N/A")
-    provide_insight(return_on_assets_2024, 0.05, float('inf'),
+    st.metric("2024", f"{roa_2024:.2f}" if roa_2024 is not None else "N/A")
+    provide_insight(roa_2024, 0.05, float('inf'),
                     "Efficient use of assets to generate profits.",
                     "Inefficient use of assets. Could indicate underutilized assets or declining profitability.")
 
@@ -69,8 +69,8 @@ def display_insights():
 
     # Fixed Charge Coverage Ratio
     st.subheader("Fixed Charge Coverage Ratio (Standard: > 1.5)")
-    st.metric("2024", f"{fixed_charge_coverage_ratio_2024:.2f}" if fixed_charge_coverage_ratio_2024 is not None else "N/A")
-    provide_insight(fixed_charge_coverage_ratio_2024, 1.5, float('inf'),
+    st.metric("2024", f"{fixed_charge_cover_ratio_2024:.2f}" if fixed_charge_cover_ratio_2024 is not None else "N/A")
+    provide_insight(fixed_charge_cover_ratio_2024, 1.5, float('inf'),
                     "Strong ability to cover fixed charges.",
                     "Potential difficulty in covering fixed charges. Could indicate high fixed costs.")
 
@@ -81,11 +81,6 @@ def display_insights():
                     "Efficient use of equity capital to generate profits.",
                     "Inefficient use of equity. Could indicate low net income or poor management performance.")
 
-    # Earnings Per Share (EPS)
-    st.subheader("Earnings Per Share (EPS) (Varies by industry)")
-    st.metric("2024", f"{eps_2024:.2f}" if eps_2024 is not None else "N/A")
-    st.write("Above Standard: High profitability per share. Reasons could include strong net income, business growth.")
-    st.write("Below Standard: Low profitability per share. Reasons could include declining profits or financial challenges.")
 
 # Call the function in the appropriate part of your Streamlit app
 if __name__ == "__main__":
