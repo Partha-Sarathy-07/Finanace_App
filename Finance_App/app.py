@@ -33,10 +33,7 @@ def main():
             st.session_state.df_balance = df_balance
             st.success("Balance Sheet data saved successfully!")
 
-        # Add a button to navigate to Income Sheet
-        if st.button("Income Sheet", key="balance_to_income"):
-            st.session_state.navigate_to = "Income Sheet"  # Set navigation state
-            st.experimental_rerun()  # Trigger rerun to go to the correct screen
+
 
     elif choice == "Income Sheet":
         st.write("### Income Sheet")
@@ -45,10 +42,6 @@ def main():
             st.session_state.df_income = df_income
             st.success("Income Sheet data saved successfully!")
 
-        # Add a button to navigate to Calculate Ratio
-        if st.button("Calculate Ratio", key="income_to_calculate_ratio"):
-            st.session_state.navigate_to = "Calculate Ratio"  # Set navigation state
-            st.experimental_rerun()  # Trigger rerun to go to the correct screen
     elif choice == "Calculation Ratio":
         display_calculation_ratio()
 def save_data_to_json():
