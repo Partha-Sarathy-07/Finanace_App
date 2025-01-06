@@ -86,30 +86,37 @@ def display_calculation_ratio():
         st.subheader("Debt to Equity Ratio")
         st.metric("2024", f"{debt_to_equity_ratio_2024:.2f}" if debt_to_equity_ratio_2024 is not None else "N/A")
         st.metric("2023", f"{debt_to_equity_ratio_2023:.2f}" if debt_to_equity_ratio_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Current Ratio")
         st.metric("2024", f"{current_ratio_2024:.2f}" if current_ratio_2024 is not None else "N/A")
         st.metric("2023", f"{current_ratio_2023:.2f}" if current_ratio_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Quick Ratio")
         st.metric("2024", f"{quick_ratio_2024:.2f}" if quick_ratio_2024 is not None else "N/A")
         st.metric("2023", f"{quick_ratio_2023:.2f}" if quick_ratio_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Return on Equity (ROE)")
         st.metric("2024", f"{roe_2024:.2f}" if roe_2024 is not None else "N/A")
         st.metric("2023", f"{roe_2023:.2f}" if roe_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Working Capital Turnover Ratio")
         st.metric("2024", f"{working_capital_turnover_ratio_2024:.2f}" if working_capital_turnover_ratio_2024 is not None else "N/A")
         st.metric("2023", f"{working_capital_turnover_ratio_2023:.2f}" if working_capital_turnover_ratio_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Operating Profit Ratio")
         st.metric("2024", f"{operating_profit_ratio_2024:.2f}")
         st.metric("2023", f"{operating_profit_ratio_2023:.2f}")
+        st.divider()
 
         st.subheader("Return on Assets (ROA)")
         st.metric("2024", f"{roa_2024:.2f}" if roa_2024 is not None else "N/A")
         st.metric("2023", f"{roa_2023:.2f}" if roa_2023 is not None else "N/A")
+        st.divider()
 
         st.subheader("Fixed Charge Cover Ratio")
         st.metric("2024", f"{fixed_charge_cover_ratio_2024:.2f}" if fixed_charge_cover_ratio_2024 is not None else "N/A")
@@ -120,4 +127,4 @@ def display_calculation_ratio():
 
     if st.button("Save Calculation Data"):
         save_data_to_json()
-        st.success("Calculation data saved to JSON successfully!")
+        st.success("Calculation data saved successfully!")
