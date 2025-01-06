@@ -158,6 +158,8 @@ def display_balance_sheet():
         st.session_state.current_assets = current_assets_df
         st.session_state.fixed_assets = fixed_assets_df
 
+
+
         # Saving the totals to session state
         st.session_state.total_non_current_2023 = total_non_current_2023
         st.session_state.total_shareholder_2023 = total_shareholder_2023
@@ -171,6 +173,7 @@ def display_balance_sheet():
         st.session_state.inventories_2024 = inventories_2024
         st.session_state.total_assets_2023 = total_assets_2023
         st.session_state.total_assets_2024 = total_assets_2024
+        st.success("Balance Sheet data saved successfully!")
         # Save data to JSON
         save_data_to_json()
 
