@@ -100,7 +100,7 @@ def display_calculation_ratio():
         st.metric("2023", f"{roe_2023:.2f}" if roe_2023 is not None else "N/A")
 
     else:
-        st.warning("Please complete the Balance Sheet first.")
+        st.warning("Please complete the Balance Sheet or Income Sheet first.")
 
     if st.button("Save Calculation Data"):
         save_data_to_json()
