@@ -7,7 +7,7 @@ import json
 
 # Navigation function
 def main():
-    st.title("Finance App")
+    
 
     # Initialize session state variables for navigation if not already set
     if "navigate_to" not in st.session_state:
@@ -23,6 +23,7 @@ def main():
 
     # Handle the content for each screen
     if choice == "Home":
+        st.title("Finance App")
         st.write("### Welcome to the Finance App")
         st.write("Navigate using the sidebar to manage financial data and calculate ratios.")
 
