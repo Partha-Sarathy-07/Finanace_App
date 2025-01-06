@@ -159,29 +159,29 @@ def display_income_sheet():
     revenue_from_operations_2024_row = income_df[income_df['Particulars (In cr)'] == 'Revenue from operations']
     revenue_from_operations_2023_row = income_df[income_df['Particulars (In cr)'] == 'Revenue from operations']
 
-    revenue_from_operations_2024 = revenue_from_operations_2024_row['2024'].iloc[0] if not revenue_from_operations_2024_row.empty else 0
-    revenue_from_operations_2023 = revenue_from_operations_2023_row['2023'].iloc[0] if not revenue_from_operations_2023_row.empty else 0
+    revenue_from_operations_2024 = int(revenue_from_operations_2024_row['2024'].iloc[0]) if not revenue_from_operations_2024_row.empty else 0
+    revenue_from_operations_2023 = int(revenue_from_operations_2023_row['2023'].iloc[0]) if not revenue_from_operations_2023_row.empty else 0
 
 # Other income
     other_income_2024_row = income_df[income_df['Particulars (In cr)'] == 'Other income']
     other_income_2023_row = income_df[income_df['Particulars (In cr)'] == 'Other income']
 
-    other_income_2024 = other_income_2024_row['2024'].iloc[0] if not other_income_2024_row.empty else 0
-    other_income_2023 = other_income_2023_row['2023'].iloc[0] if not other_income_2023_row.empty else 0
+    other_income_2024 = int(other_income_2024_row['2024'].iloc[0]) if not other_income_2024_row.empty else 0
+    other_income_2023 = int(other_income_2023_row['2023'].iloc[0]) if not other_income_2023_row.empty else 0
 
 # Finance costs
     finance_costs_2024_row = expense_df[expense_df['Particulars (In cr)'] == 'Finance costs']
     finance_costs_2023_row = expense_df[expense_df['Particulars (In cr)'] == 'Finance costs']
 
-    finance_costs_2024 = finance_costs_2024_row['2024'].iloc[0] if not finance_costs_2024_row.empty else 0
-    finance_costs_2023 = finance_costs_2023_row['2023'].iloc[0] if not finance_costs_2023_row.empty else 0
+    finance_costs_2024 = int(finance_costs_2024_row['2024'].iloc[0]) if not finance_costs_2024_row.empty else 0
+    finance_costs_2023 = int(finance_costs_2023_row['2023'].iloc[0]) if not finance_costs_2023_row.empty else 0
 
 # Depreciation and amortisation expenses
     depreciation_expenses_2024_row = expense_df[expense_df['Particulars (In cr)'] == 'Depreciation and amortisation expenses']
     depreciation_expenses_2023_row = expense_df[expense_df['Particulars (In cr)'] == 'Depreciation and amortisation expenses']
 
-    depreciation_expenses_2024 = depreciation_expenses_2024_row['2024'].iloc[0] if not depreciation_expenses_2024_row.empty else 0
-    depreciation_expenses_2023 = depreciation_expenses_2023_row['2023'].iloc[0] if not depreciation_expenses_2023_row.empty else 0
+    depreciation_expenses_2024 = int(depreciation_expenses_2024_row['2024'].iloc[0]) if not depreciation_expenses_2024_row.empty else 0
+    depreciation_expenses_2023 = int(depreciation_expenses_2023_row['2023'].iloc[0]) if not depreciation_expenses_2023_row.empty else 0
 
     # Save button
     if st.button("Save Income Sheet Data"):
@@ -204,6 +204,8 @@ def display_income_sheet():
         st.session_state.finance_costs_2024 = finance_costs_2024
         st.session_state.depreciation_expenses_2023 = depreciation_expenses_2023
         st.session_state.depreciation_expenses_2024 = depreciation_expenses_2024
+        st.success("Income Sheet data saved successfully!")
+
         # Save data to JSON
         save_data_to_json()
 
